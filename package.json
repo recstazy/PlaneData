@@ -1,0 +1,20 @@
+{
+  "name": "com.recstazy.plane.data",
+  "version": "1.0.1",
+  "displayName": "Plane Data",
+  "description": "Serialize objects in editor by reference using just one attribute and inheritance",
+  "unity": "2019.1",
+  "unityRelease": "1f1",
+  "dependencies": {},
+ "keywords": [
+    "recstazy",
+    "utils",
+    "plane",
+	"data"
+  ],
+  "author": {
+    "name": "Recstazy",
+    "email": "bukotkin.stanislav@gmail.com",
+    "url": "https://github.com/recstazy"
+  }
+}

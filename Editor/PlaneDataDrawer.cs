@@ -18,6 +18,7 @@ namespace Recstazy.PlaneData.Editor
         private static readonly float s_buttonSize = EditorGUIUtility.singleLineHeight - EditorGUIUtility.standardVerticalSpacing;
         private static readonly GUIStyle s_buttonStyle = new GUIStyle(GUI.skin.button);
         private static readonly RectOffset s_buttonPadding = new RectOffset(0, 0, 1, 2);
+        private static readonly string[] SelectTypeCaption = new string[] { "- Select Type -" };
 
         #endregion
 
@@ -74,14 +75,15 @@ namespace Recstazy.PlaneData.Editor
                 types = new Type[] { fieldType }.Concat(types).ToArray();
             }
 
-            var names = types.Select(t => t.Name).ToArray();
-
-            EditorGUI.BeginChangeCheck();
+            var names = SelectTypeCaption
+                .Concat(types.Select(t => t.Name))
+                .ToArray();
+            
             int index = EditorGUI.Popup(rect, 0, names);
 
-            if (EditorGUI.EndChangeCheck())
+            if (index != 0)
             {
-                var instance = Activator.CreateInstance(types[index]);
+                var instance = Activator.CreateInstance(types[index - 1]);
                 _property.managedReferenceValue = instance;
             }
         }
